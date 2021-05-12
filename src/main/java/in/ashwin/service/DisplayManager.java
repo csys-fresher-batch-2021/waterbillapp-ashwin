@@ -4,8 +4,12 @@ import java.util.*;
 import in.ashwin.model.PerUnitPrice;
 
 public class DisplayManager {
+	private DisplayManager()
+	{
+		
+	}
 
-	static Map<String,List<PerUnitPrice>>map=new HashMap<>();
+	private static final Map<String,List<PerUnitPrice>>map=new LinkedHashMap<>();
 
 	static {
 		PerUnitPrice domesticOneToTenkl = new PerUnitPrice(0, 10, 4);

@@ -1,12 +1,11 @@
-
-<html>
+<html lang="en">
 <head>
 <title>MyApp</title>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	<main class="container-fluid">
-		<h3><center>Welcome To Project</center></h3>
+	<h3>Welcome To Project</h3>
 		
 	
 

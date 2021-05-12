@@ -1,11 +1,21 @@
 package in.ashwin.model;
 
 public class PerUnitPrice {
-	public int minimumUnits;
+	private int minimumUnits;
 		
-	public int maximumUnits;
+	private int maximumUnits;
 		
-	public int price;
+	private int price;
+	
+	public int getMinimumUnits() {
+		return minimumUnits;
+	}
+	public int getMaximumUnits() {
+		return maximumUnits;
+	}
+	public int getPrice() {
+		return price;
+	}
 	
 	public PerUnitPrice(int minimumUnits,int maximumUnits,int price) {
 		this.minimumUnits=minimumUnits;
