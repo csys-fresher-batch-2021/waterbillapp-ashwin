@@ -1,6 +1,8 @@
 package app;
 
 import java.io.IOException;
+
+
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
@@ -18,7 +20,7 @@ public class HelloServlet extends HttpServlet {
       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		out.println("Hello");
+		out.println("Hello world");
 		
 	}
 
