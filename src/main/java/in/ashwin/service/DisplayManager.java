@@ -60,39 +60,3 @@ public class DisplayManager {
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-//	public static int getPerUnitPrice(String type, int units) {
-//		if (units <= 0 || units > 101) {
-//			throw new IllegalArgumentException("Invalid Unit");
-//		}
-//		if(!(type != null && map.containsKey(type.toUpperCase()))) {
-//			throw new IllegalArgumentException("Invalid Type");
-//		}
-//
-//		int costOfOneUnit = 0;
-//		for (Map.Entry<String, List<PerUnitPrice>> entry : map.entrySet()) {
-//			String Key = entry.getKey();
-//			List<PerUnitPrice> perUnitPrice = entry.getValue();
-//			for (PerUnitPrice size : perUnitPrice) {
-//				if (Key.equalsIgnoreCase(type) && units >= size.getMinimumUnits() && units <= size.getMaximumUnits()) {
-//					costOfOneUnit = size.getPrice();
-//					break;
-//				}
-//			}
-//		}
-//
-//		return costOfOneUnit;
-//	}
-//}
-	

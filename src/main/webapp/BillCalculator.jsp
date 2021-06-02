@@ -19,8 +19,7 @@
 				<option id="selectType" value="DOMESTIC">DOMESTIC</option>
 				<option id="selectType" value="COMMERCIAL">COMMERCIAL</option>
 			</select><br> <label for="units">Units: </label> <input type="number"
-				id="units" name="units" min="1.0" max="100.0" size="16" step="0.01"
-				required> <br>
+				id="units" name="units" min="1.0" max="100.0" required> <br>
 			<button type="submit" class="btn btn-primary">Calculate</button>
 </form>
 </main>

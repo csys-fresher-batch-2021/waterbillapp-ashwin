@@ -15,6 +15,7 @@ import in.ashwin.service.BillCalculator;
 @WebServlet("/BillGenerate")
 public class BillGenerate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
 			int units=Integer.parseInt(request.getParameter("units"));

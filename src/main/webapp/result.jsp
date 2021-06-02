@@ -12,7 +12,6 @@
 <%
 Double totalBill=Double.parseDouble(request.getParameter("totalBill"));
 %>
-Total Bill Amount is Rs. <%= totalBill %>
 </main>
 </body>
 </html>
