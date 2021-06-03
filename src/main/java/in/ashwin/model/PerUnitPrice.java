@@ -5,7 +5,8 @@ public class PerUnitPrice {
 		
 	private int maximumUnits;
 		
-	private int price;
+	private double price;
+	
 	
 	public int getMinimumUnits() {
 		return minimumUnits;
@@ -13,11 +14,10 @@ public class PerUnitPrice {
 	public int getMaximumUnits() {
 		return maximumUnits;
 	}
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
-	
-	public PerUnitPrice(int minimumUnits,int maximumUnits,int price) {
+	public PerUnitPrice(int minimumUnits,int maximumUnits,double price) {
 		this.minimumUnits=minimumUnits;
 		this.maximumUnits=maximumUnits;
 		this.price=price;

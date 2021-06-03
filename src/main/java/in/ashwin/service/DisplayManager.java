@@ -1,15 +1,16 @@
 package in.ashwin.service;
 
 import java.util.*;
+
+
 import in.ashwin.model.PerUnitPrice;
 
 public class DisplayManager {
-	private DisplayManager()
-	{
-		
+	private DisplayManager() {
+
 	}
 
-	private static final Map<String,List<PerUnitPrice>>map=new LinkedHashMap<>();
+	private static final Map<String, List<PerUnitPrice>> map = new LinkedHashMap<>();
 
 	static {
 		PerUnitPrice domesticOneToTenkl = new PerUnitPrice(0, 10, 4);
@@ -21,7 +22,7 @@ public class DisplayManager {
 		domesticTariff.add(domesticElevenToFifteenkl);
 		domesticTariff.add(domesticSixteenToTwentyFivekl);
 		domesticTariff.add(domesticTwentySixToHundredkl);
-		map.put("Domestic Users", domesticTariff);
+		map.put("DOMESTIC", domesticTariff);
 
 		PerUnitPrice commercialOneToTenkl = new PerUnitPrice(0, 10, 8);
 		PerUnitPrice commercialElevenToFifteenkl = new PerUnitPrice(11, 15, 25);
@@ -30,10 +31,32 @@ public class DisplayManager {
 		commercialTariff.add(commercialOneToTenkl);
 		commercialTariff.add(commercialElevenToFifteenkl);
 		commercialTariff.add(commercialSixteenToHundredKl);
-		map.put("Commercial Users", commercialTariff);
+		map.put("COMMERCIAL", commercialTariff);
 	}
 
 	public static Map<String, List<PerUnitPrice>> getList() {
+
 		return map;
 	}
+	public static double getPerUnitPrice(String type, int units) {
+		if ((units < 0 || units > 100)) {
+			throw new IllegalArgumentException("Invalid Unit");
+		}
+		if (!(type != null && map.containsKey(type.toUpperCase()))) {
+			throw new IllegalArgumentException("Invalid Type");
+		}
+		double perUnitPrice = 0;
+		for (Map.Entry<String, List<PerUnitPrice>> entry : map.entrySet()) {
+			String key = entry.getKey();
+			List<PerUnitPrice> unitPrice = entry.getValue();
+			for (PerUnitPrice up : unitPrice) {
+				if (key.equalsIgnoreCase(type) && units >= up.getMinimumUnits() && units <= up.getMaximumUnits()) {
+					perUnitPrice = up.getPrice();
+					break;
+				}
+			}
+		}
+		return perUnitPrice;
+	}
+
 }
