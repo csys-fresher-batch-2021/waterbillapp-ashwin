@@ -39,7 +39,7 @@ public class DisplayManager {
 		return map;
 	}
 	public static double getPerUnitPrice(String type, int units) {
-		if ((units < 0 || units > 1000)) {
+		if ((units < 0 || units > 100)) {
 			throw new IllegalArgumentException("Invalid Unit");
 		}
 		if (!(type != null && map.containsKey(type.toUpperCase()))) {

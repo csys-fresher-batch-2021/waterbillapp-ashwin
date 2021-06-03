@@ -10,8 +10,10 @@
 <jsp:include page="header.jsp"></jsp:include>
 <main class="container-fluid">
 <%
-Double totalBill=Double.parseDouble(request.getParameter("totalBill"));
+Double totalBill = Double.parseDouble(request.getParameter("totalBill"));
 %>
+
+Total Bill Amount is Rs.<%=totalBill%>
 </main>
 </body>
 </html>
