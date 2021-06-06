@@ -4,6 +4,7 @@ import java.sql.Connection;
 
 
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,7 +26,7 @@ public class RegistrationDAO {
 		PreparedStatement pst=null;
 		try {
 			connection=ConnectionUtil.getConnection();
-			String sql="insert into user_details(name,mobile_No,consumer_No,user_password,confirm_password)values(?,?,?,?,?,?)";
+			String sql="insert into user_details(name,mobile_No,consumer_No,user_password,confirm_password)values(?,?,?,?,?)";
 			pst=connection.prepareStatement(sql);
 			pst.setString(1,userDetail.getName());
 			pst.setString(2,userDetail.getMobileNo());

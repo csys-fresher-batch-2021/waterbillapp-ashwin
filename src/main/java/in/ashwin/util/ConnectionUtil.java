@@ -1,6 +1,7 @@
 package in.ashwin.util;
 import java.sql.Connection;
 
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,9 +12,9 @@ public class ConnectionUtil {
 
 	public static Connection getConnection() throws ClassNotFoundException, SQLException {
 		String driverClass = "org.postgresql.Driver";
-		String url = "jdbc:postgresql://localhost/eb_db";
+		String url = "jdbc:postgresql://localhost/Water_Bill";
 		String username = "postgres";
-		String password = "viki75300";
+		String password = "Kethanur@123";
 		Class.forName(driverClass);
 		Connection connection = DriverManager.getConnection(url, username, password);
 		System.out.println("Connection Created");

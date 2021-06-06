@@ -2,6 +2,7 @@ package in.ashwin.servlet;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +25,7 @@ public class AdminLoginFeature extends HttpServlet {
 		if (isValidLogin) {
 			HttpSession session = request.getSession();
 			session.setAttribute("ROLE", "ADMIN");
-			response.sendRedirect("PriceList.jsp");
+			response.sendRedirect("Pricing.jsp");
 		} else {
 			String errorMessage = "Invalid login credentials";
 			response.sendRedirect("AdminLogin.jsp?errorMessage=" + errorMessage);

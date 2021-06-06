@@ -2,7 +2,6 @@ package in.ashwin.servlet;
 
 import java.io.IOException;
 
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,42 +18,37 @@ import in.ashwin.service.UserRegistration;
 @WebServlet("/RegistrationAction")
 public class RegistrationAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name=request.getParameter("name");
-		String mobileNumber=request.getParameter("mobileNumber");
-		String consumerNumber=request.getParameter("ConsumerNumber");
-		String password=request.getParameter("password");
-		String confirmPassword=request.getParameter("confirmpassword");
-		UserDetails user=new UserDetails(name,mobileNumber,consumerNumber,password,confirmPassword);
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String name = request.getParameter("name");
+		String mobileNumber = request.getParameter("mobileNumber");
+		String consumerNumber = request.getParameter("ConsumerNumber");
+		String password = request.getParameter("password");
+		String confirmPassword = request.getParameter("confirmpassword");
+		UserDetails user = new UserDetails(name, mobileNumber, consumerNumber, password, confirmPassword);
 
 		try {
-			if(!UserRegistration.existingUser(user))
-			{
-				if(UserRegistration.userRegistration(user))
-				{
+			if (!UserRegistration.existingUser(user)) {
+				if (UserRegistration.userRegistration(user)) {
 					response.sendRedirect("Register.jsp");
-				}
-				else {
+				} else {
 					String errorMessage = "Invalid Details";
 					response.sendRedirect("Registration.jsp?errorMessage=" + errorMessage);
 				}
-				
-			}
-			else {
+
+			} else {
 				String existsMessage = "Already Registered";
 				response.sendRedirect("Registration.jsp?existsMessage=" + existsMessage);
-				
+
 			}
 		} catch (ServiceException e) {
 			String message = e.getMessage();
 			response.sendRedirect("Registration.jsp?message=" + message);
 			e.printStackTrace();
 		}
-		
-		
-		
-		
+
 	}
 
 }

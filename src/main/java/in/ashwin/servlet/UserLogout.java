@@ -1,6 +1,5 @@
 package in.ashwin.servlet;
 
-
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -11,19 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- 	AdminLogOut
+ * Servlet implementation class UserLogout
  */
-@WebServlet("/AdminLogOut")
-public class AdminLogout extends HttpServlet {
+@WebServlet("/UserLogout")
+public class UserLogout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		HttpSession session = request.getSession();
 		session.invalidate();
-		response.sendRedirect("AdminLogin.jsp");
+		response.sendRedirect("UserLogin.jsp");
 	}
-
 }
