@@ -2,6 +2,7 @@ package in.ashwin.dao;
 
 import java.sql.Connection;
 
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,7 +17,7 @@ public class LoginDao {
 		PreparedStatement pst = null;
 		try {
 			connection=ConnectionUtil.getConnection();
-			String sql="select * from user_details where mobile_No? AND user_password=?";
+			String sql="select * from user_details where mobile_No=? AND user_password=?";
 			pst=connection.prepareStatement(sql);
 			pst.setString(1, mobileNumber);
 			pst.setString(2, password);

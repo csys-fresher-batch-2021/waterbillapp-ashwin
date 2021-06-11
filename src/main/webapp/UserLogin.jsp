@@ -5,7 +5,6 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>UserLogin</title>
-<link rel="stylesheet" href="assets/css/style1.css">
 
 </head>
 <body>
@@ -25,7 +24,7 @@
 	<form action="UserLogin" method="post">
 	
 		<label for="mobileNumber"><strong>mobileNumber:</strong></label><br>
-		<input type="text" name="mobileNumber" placeholder="Enter mobile Number" autofocus required><br>
+		<input type="text" name="mobileNumber" placeholder="Enter your mobile Number" autofocus required><br>
 		<label for="password" ><strong>Password:</strong></label><br>
 		<input type="password" name="password" placeholder="Enter your password" required><br>
 		<br>

@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Registration</title>
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
@@ -29,8 +29,8 @@
 	<label for="mobileNumber"><strong>Mobile Number:</strong></label><br>
 	<input type="tel" name="mobileNumber" placeholder="Enter your mobile number" required><br>
 	
-	<label for="ConsumerNumber"><strong>Consumer Number:</strong></label><br>
-	<input type="tel" name="ConsumerNumber" placeholder="Enter your consumer number" required><br>
+	<label for="consumerNumber"><strong>Consumer Number:</strong></label><br>
+	<input type="tel" name="consumerNumber" placeholder="Enter your consumer number" required><br>
 	
 	  
 	<label for="password"><strong>Set Password:</strong></label><br>

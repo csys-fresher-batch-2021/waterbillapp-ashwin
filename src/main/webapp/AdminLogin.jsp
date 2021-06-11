@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>AdminLogin</title>
+<title>Login</title>
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
@@ -15,7 +15,7 @@
 			out.println("<font color='red'>" + errorMessage + "</font>");
 		}
 	%>
-	<h3>Login</h3>
+	<h3>AdminLogin</h3>
 	<div class="Adminlogin">
 	<form action="AdminLoginFeature" method="post">
 	
@@ -28,7 +28,12 @@
 		<button  type="reset" class="btn btn-info">Reset</button>
 	</form>
 	</div>
-	
+	Note:
+	<br>
+	ConsumerNumber=0323100125
+	<br>
+	password=Admin@12345
+	<br>
 	
 </main>
 </body>

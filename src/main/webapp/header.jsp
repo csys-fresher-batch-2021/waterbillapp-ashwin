@@ -56,14 +56,14 @@ String LoginUser=(String)session.getAttribute("LOGINUSER");
       <%} if(role!=null){%>
      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-      <a class="nav-link" href="AdminLogOut">Log out</a>
+      <a class="nav-link" href="AdminLogout">Log out</a>
       </li>
       </ul>
       <%} %>
       <% if(LoginUser!=null){ %>
        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-      <a class="nav-link" href="UserLogOut">Log out</a>
+      <a class="nav-link" href="UserLogout">Log out</a>
       </li>
       </ul>
       <%} %>

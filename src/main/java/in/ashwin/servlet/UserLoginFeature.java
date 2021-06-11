@@ -2,6 +2,7 @@ package in.ashwin.servlet;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,7 +27,7 @@ public class UserLoginFeature extends HttpServlet {
 			if (UserLogin.validLogin(mobileNumber, password)) {
 				HttpSession session = request.getSession();
 				session.setAttribute("LOGINUSER", "USER");
-				response.sendRedirect("PriceList.jsp");
+				response.sendRedirect("Pricing.jsp");
 			}
 			else {
 					String errorMessage = "Invalid Details";

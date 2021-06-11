@@ -2,6 +2,7 @@ package in.ashwin.servlet;
 
 import java.io.IOException;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +25,7 @@ public class RegistrationAction extends HttpServlet {
 			throws ServletException, IOException {
 		String name = request.getParameter("name");
 		String mobileNumber = request.getParameter("mobileNumber");
-		String consumerNumber = request.getParameter("ConsumerNumber");
+		String consumerNumber = request.getParameter("consumerNumber");
 		String password = request.getParameter("password");
 		String confirmPassword = request.getParameter("confirmpassword");
 		UserDetails user = new UserDetails(name, mobileNumber, consumerNumber, password, confirmPassword);
