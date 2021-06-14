@@ -11,7 +11,8 @@
 <main class="container-fluid">
 <%
 Double totalBill = Double.parseDouble(request.getParameter("totalBill"));
-%>
+%
+Your total bill amount is Rs. <%=totalBill %>
 
 Total Bill Amount is Rs.<%=totalBill%>
 </main>

@@ -4,7 +4,8 @@
 <html lang="en">
 <head>
 <meta charset="ISO-8859-1">
-<title>Login</title>
+<title>UserLogin</title>
+
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
@@ -13,27 +14,24 @@
 		String errorMessage = request.getParameter("errorMessage");
 		if(errorMessage != null){
 			out.println("<font color='red'>" + errorMessage + "</font>");
+			
 		}
 	%>
-	<h3>AdminLogin</h3>
-	<div class="Adminlogin">
-	<form action="AdminLoginFeature" method="post">
 	
-		<label for="consumerNumber"><strong>Consumer Number:</strong></label><br>
-		<input type="text" name="consumerNumber" placeholder="Enter Consumer Number" autofocus required><br>
+	<h2>Login</h2>
+			<div class="Userlogin">
+	
+	<form action="UserLogin" method="post">
+	
+		<label for="mobileNumber"><strong>mobileNumber:</strong></label><br>
+		<input type="text" name="mobileNumber" placeholder="Enter your mobile Number" autofocus required><br>
 		<label for="password" ><strong>Password:</strong></label><br>
 		<input type="password" name="password" placeholder="Enter your password" required><br>
 		<br>
 		<button type="submit" class="btn btn-success">Submit</button>
-		<button  type="reset" class="btn btn-info">Reset</button>
+		<button  type="reset" class="btn btn-danger">Reset</button>
 	</form>
 	</div>
-	Note:
-	<br>
-	ConsumerNumber=0323100125
-	<br>
-	password=Admin@12345
-	<br>
 	
 </main>
 </body>

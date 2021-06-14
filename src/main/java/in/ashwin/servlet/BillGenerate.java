@@ -6,11 +6,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import in.ashwin.service.BillCalculator;
 
 
 /**
- * Servlet implementation class BillGenerate
+ * BillGenerate
  */
 @WebServlet("/BillGenerate")
 public class BillGenerate extends HttpServlet {
@@ -18,6 +20,9 @@ public class BillGenerate extends HttpServlet {
 @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+			HttpSession session = request.getSession();
+			session.setAttribute("LOGINUSER", "USER");
+
 			int units=Integer.parseInt(request.getParameter("units"));
 			String type = request.getParameter("type");
 			double total=BillCalculator.getBillCalculator(type, units);

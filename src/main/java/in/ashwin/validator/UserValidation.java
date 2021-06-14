@@ -25,7 +25,7 @@ public class UserValidation {
 	public static boolean isValidMobile(String mobileNo) {
 		boolean validMobile = false;
 
-		Pattern pattern = Pattern.compile("(0/91)?[6-9][0-9]{9}");
+		Pattern pattern = Pattern.compile("[6-9]{1}[0-9]{9}");
 		Matcher matcher = pattern.matcher(mobileNo);
 		if (matcher.matches()) {
 			validMobile = true;
@@ -51,12 +51,21 @@ public class UserValidation {
 	public static boolean isValidPassword(String password) {
 		boolean validPassword = false;
 
-		Pattern pattern = Pattern.compile("[A-Z]{1}[A-Za-z0-9]{7}");
+		Pattern pattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^)])(?=\\S+$).{8,20}$");
 		Matcher matcher = pattern.matcher(password);
 		if (matcher.matches()) {
 			validPassword = true;
 		}
 		return validPassword;
 
+	}
+	public static void main(String args[])
+	{
+		String consNO="0223456412";
+		System.out.print(UserValidation.isValidConsumerNo(consNO));
+		String Pass="Water@12345";
+		System.out.println(UserValidation.isValidPassword(Pass));
+		String mobile="9898989898";
+		System.out.println(UserValidation.isValidMobile(mobile));
 	}
 }
