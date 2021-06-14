@@ -42,6 +42,12 @@
 	<button type="submit" class="btn btn-success">Submit</button>
 	<button  type="reset" class="btn btn-warning">Reset</button>
 	</form>
+	Note:
+	<br>
+	Consumer number must contain 10 digits.First digit must start with zero
+	<br>
+	Second digit should not contain zero.
+	<br>
 
 </main>
 </body>
