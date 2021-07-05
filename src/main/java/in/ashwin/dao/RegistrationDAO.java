@@ -1,76 +1,74 @@
 package in.ashwin.dao;
 
-import java.sql.Connection;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
 
 import in.ashwin.exception.DBException;
 import in.ashwin.model.UserDetails;
 import in.ashwin.util.ConnectionUtil;
 
 public class RegistrationDAO {
-	/**
-	 * This method is used to add user detail into the database
-	 * 
-	 * @param userDetail
-	 */
-	public void addUserDetail(UserDetails userDetail) {
-		Connection connection = null;
-		PreparedStatement pst = null;
-		try {
-			connection = ConnectionUtil.getConnection();
-			String sql = "insert into user_details(name,mobile_No,consumer_No,user_password,confirm_password)values(?,?,?,?,?)";
-			pst = connection.prepareStatement(sql);
-			pst.setString(1, userDetail.getName());
-			pst.setString(2, userDetail.getMobileNo());
-			pst.setString(3, userDetail.getConsumerNumber());
-			pst.setString(4, userDetail.getPassword());
-			pst.setString(5, userDetail.getConfirmPassword());
-			pst.executeUpdate();
 
-		} catch (ClassNotFoundException | SQLException e) {
+	public int addUser(UserDetails user) {
+		Connection con = null;
+		PreparedStatement preparedStatement = null;
+		try {
+			con = ConnectionUtil.getConnection();
+			String sql = "insert into user_details(name,email,mobileno,consumerno,address,password,roleid)values(?,?,?,?,?,?,?)";
+			preparedStatement = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+			preparedStatement.setString(1, user.getName());
+			preparedStatement.setString(2, user.getEmail());
+			preparedStatement.setString(3, user.getMobileno());
+			preparedStatement.setString(4, user.getConsumerno());
+			preparedStatement.setString(5, user.getAddress());
+			preparedStatement.setString(6, user.getPassword());
+			preparedStatement.setInt(7, user.getRoleid());
+			preparedStatement.executeUpdate();
+			int id = 0;
+
+			ResultSet rs = preparedStatement.getGeneratedKeys();
+			if (rs.next()) {
+				id = rs.getInt(1);
+			}
+
+			return id;
+
+		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new DBException("unable to add records into the database");
 		} finally {
-			ConnectionUtil.close(pst, connection);
+			ConnectionUtil.close(preparedStatement, con);
 		}
 
 	}
 
-	/**
-	 * This method is used to fetch all the records from the database
-	 * 
-	 * @return
-	 */
-	public List<UserDetails> getAllUser() {
-		List<UserDetails> user = new ArrayList<>();
-		Connection connection = null;
-		PreparedStatement pst = null;
+	public static UserDetails getRecordById(int id) {
+		UserDetails user = new UserDetails();
+		Connection con = null;
+		PreparedStatement preparedStatement = null;
 		try {
-			connection = ConnectionUtil.getConnection();
-			String sql = "select * from user_details";
-			pst = connection.prepareStatement(sql);
-			ResultSet rs = pst.executeQuery();
+			con = ConnectionUtil.getConnection();
+			String sql = "select * from user_details where userid=?";
+			preparedStatement = con.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			ResultSet rs = preparedStatement.executeQuery();
 			while (rs.next()) {
-				String name = rs.getString("name");
-				String mobileNo = rs.getString("mobile_No");
-				String consumerNo = rs.getString("consumer_No");
-				String password = rs.getString("user_password");
-				String confirmPassword = rs.getString("confirm_password");
-				UserDetails userDetails = new UserDetails(name, mobileNo, consumerNo, password, confirmPassword);
-				user.add(userDetails);
+				user.setUserid(rs.getInt(1));
+				user.setName(rs.getString(2));
+				user.setEmail(rs.getString(3));
+				user.setMobileno(rs.getString(4));
+				user.setConsumerno(rs.getString(5));
+				user.setAddress(rs.getString(6));
+				user.setPassword(rs.getString(7));
 			}
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
 			throw new DBException("unable to fetch all records from database");
 		} finally {
-			ConnectionUtil.close(pst, connection);
+			ConnectionUtil.close(preparedStatement, con);
 		}
+
 		return user;
+
 	}
 
 }
