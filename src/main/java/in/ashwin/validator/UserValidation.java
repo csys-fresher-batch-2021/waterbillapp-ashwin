@@ -1,7 +1,6 @@
 package in.ashwin.validator;
 
 import java.util.regex.Matcher;
-
 import java.util.regex.Pattern;
 
 public class UserValidation {
@@ -12,7 +11,7 @@ public class UserValidation {
 	public static boolean isValidName(String name) {
 		boolean validName = false;
 
-		Pattern pattern = Pattern.compile("^[a-zA-Z+\\s]+$");
+		Pattern pattern = Pattern.compile("[a-zA-Z+\\s]{3,50}");
 		Matcher matcher = pattern.matcher(name);
 		if (matcher.matches()) {
 			validName = true;
@@ -25,7 +24,7 @@ public class UserValidation {
 	public static boolean isValidMobile(String mobileNo) {
 		boolean validMobile = false;
 
-		Pattern pattern = Pattern.compile("[6-9]{1}[0-9]{9}");
+		Pattern pattern = Pattern.compile("(0/91)?[6-9][0-9]{9}");
 		Matcher matcher = pattern.matcher(mobileNo);
 		if (matcher.matches()) {
 			validMobile = true;
@@ -59,13 +58,26 @@ public class UserValidation {
 		return validPassword;
 
 	}
-	public static void main(String args[])
-	{
-		String consNO="0223456412";
-		System.out.print(UserValidation.isValidConsumerNo(consNO));
-		String Pass="Water@12345";
-		System.out.println(UserValidation.isValidPassword(Pass));
-		String mobile="9898989898";
-		System.out.println(UserValidation.isValidMobile(mobile));
+
+	public static boolean isNumeric(double number) {
+		boolean validNumber = false;
+
+		if (number >= 0 && number <= 100) {
+			validNumber = true;
+		}
+		return validNumber;
+
+	}
+
+	public static boolean isValidEmail(String email) {
+		boolean validEmail = false;
+
+		Pattern pattern = Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$");
+		Matcher matcher = pattern.matcher(email);
+		if (matcher.matches()) {
+			validEmail = true;
+		}
+		return validEmail;
+
 	}
 }

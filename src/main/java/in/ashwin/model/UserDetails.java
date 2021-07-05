@@ -1,39 +1,62 @@
 package in.ashwin.model;
 
 public class UserDetails {
-	private String name;
-	private String mobileNo;
-	private String consumerNumber;
-	private String password;
-	private String confirmPassword;
 
+	private int userid;
+	private String name;
+	private String email;
+	private String mobileno;
+	private String consumerno;
+	private String address;
+	private String password;
+	private int roleid;
+	public int getUserid() {
+		return userid;
+	}
 	public String getName() {
 		return name;
 	}
-
-	public String getMobileNo() {
-		return mobileNo;
+	public String getEmail() {
+		return email;
 	}
-
-	public String getConsumerNumber() {
-		return consumerNumber;
+	public String getMobileno() {
+		return mobileno;
 	}
-
+	public String getConsumerno() {
+		return consumerno;
+	}
+	public String getAddress() {
+		return address;
+	}
 	public String getPassword() {
 		return password;
 	}
-
-	public String getConfirmPassword() {
-		return confirmPassword;
+	public int getRoleid() {
+		return roleid;
 	}
-
-	public UserDetails(String name, String mobileNo, String consumerNumber, String password, String confirmPassword) {
-		super();
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+	public void setName(String name) {
 		this.name = name;
-		this.mobileNo = mobileNo;
-		this.consumerNumber = consumerNumber;
-		this.password = password;
-		this.confirmPassword = confirmPassword;
 	}
-
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setMobileno(String mobileno) {
+		this.mobileno = mobileno;
+	}
+	public void setConsumerno(String consumerno) {
+		this.consumerno = consumerno;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public void setRoleid(int roleid) {
+		this.roleid = roleid;
+	}
 }
+	
